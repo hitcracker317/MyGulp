@@ -1,0 +1,13 @@
+#main{
+	background-color: #1cc;
+	.list{
+		display: flex;
+		justify-content: space-around;
+
+		li{
+			float: left;
+			color: #f11;
+			list-style-type: none;
+		}
+	}
+}
