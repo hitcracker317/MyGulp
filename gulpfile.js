@@ -5,7 +5,7 @@ var uglify = require("gulp-uglify");
 
 var notify = require('gulp-notify');
 var plumber = require('gulp-plumber');
-var browser = require("browser-sync"); 
+var browser = require("browser-sync");
 
 
 //sass compile
@@ -34,8 +34,9 @@ gulp.task("js", function() {
 // watch
 gulp.task('watch', function(){
   gulp.watch(['./**/*.html', './**/*.htm'], ['browser-reload']);
-  gulp.watch("sass/**/*.scss",["sass"]); 
-  gulp.watch("js/**/*.js",["js"]); 
+  gulp.watch(['css/**/*.css'], ['browser-reload']);
+  gulp.watch("sass/**/*.scss",["sass"]);
+  gulp.watch("js/**/*.js",["js"]);
 });
 
 // browser-reload
@@ -48,15 +49,10 @@ gulp.task("server", function(){
 	browser({
 		server: {
 			baseDir: './',
-      		directory: true 
+      		directory: true
 		},
 		open: "external"
 	});
 });
 
-gulp.task("default",['sass','watch','server','js']); 
-
-
-
-
-
+gulp.task("default",['sass','watch','server','js']);
