@@ -20,6 +20,16 @@ gulp.task("sass", function() {
         .pipe(browser.reload({stream:true}));
 });
 
+//use css only
+gulp.task("css", function() {
+  gulp.src(["css/**/*.css"])
+      .pipe(plumber({
+        errorHandler: notify.onError("Error: <%= error.message %>")
+      }))
+      .pipe(autoprefixer())
+      .pipe(browser.reload({stream:true}));
+});
+
 //js minify
 gulp.task("js", function() {
     gulp.src(["js/**/*.js","!js/min/**/*.js"])
@@ -34,7 +44,6 @@ gulp.task("js", function() {
 // watch
 gulp.task('watch', function(){
   gulp.watch(['./**/*.html', './**/*.htm'], ['browser-reload']);
-  gulp.watch(['css/**/*.css'], ['browser-reload']);
   gulp.watch("sass/**/*.scss",["sass"]);
   gulp.watch("js/**/*.js",["js"]);
 });
