@@ -16,6 +16,8 @@ gulp.task("sass", function() {
         }))
         .pipe(sass())
         .pipe(autoprefixer())
+        .pipe(cssmin())
+        .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest("./css"))
         .pipe(browser.reload({stream:true}));
 });
@@ -27,6 +29,8 @@ gulp.task("css", function() {
         errorHandler: notify.onError("Error: <%= error.message %>")
       }))
       .pipe(autoprefixer())
+      .pipe(cssmin())
+      .pipe(rename({ extname: '.min.css' }))
       .pipe(browser.reload({stream:true}));
 });
 
@@ -37,6 +41,7 @@ gulp.task("js", function() {
           errorHandler: notify.onError("Error: <%= error.message %>")
         }))
         .pipe(uglify())
+        .pipe(rename({ extname: '.min.js' }))
         .pipe(gulp.dest("./js/min"))
         .pipe(browser.reload({stream:true}));
 });
