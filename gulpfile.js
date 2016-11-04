@@ -18,7 +18,7 @@ gulp.task("sass", function() {
         .pipe(autoprefixer())
         .pipe(cssmin())
         .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest("./css"))
+        .pipe(gulp.dest("./css/min"))
         .pipe(browser.reload({stream:true}));
 });
 
@@ -31,6 +31,7 @@ gulp.task("css", function() {
       .pipe(autoprefixer())
       .pipe(cssmin())
       .pipe(rename({ extname: '.min.css' }))
+      .pipe(gulp.dest("./css/min"))
       .pipe(browser.reload({stream:true}));
 });
 
