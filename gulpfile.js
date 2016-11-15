@@ -1,14 +1,24 @@
 var gulp = require('gulp');
+
+//sassコンパイル
 var sass = require("gulp-sass");
+
+//ベンダープレフィックス
 var autoprefixer = require("gulp-autoprefixer");
+
+//js圧縮
 var uglify = require("gulp-uglify");
+
+//css圧縮
+var cssmin = require('gulp-cssmin');
+var rename = require('gulp-rename');
 
 var notify = require('gulp-notify');
 var plumber = require('gulp-plumber');
 var browser = require("browser-sync");
 
 
-//sass compile
+//sass compile & css minifiy
 gulp.task("sass", function() {
     gulp.src(["sass/**/*.scss"])
         .pipe(plumber({
@@ -20,19 +30,6 @@ gulp.task("sass", function() {
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest("./css/min"))
         .pipe(browser.reload({stream:true}));
-});
-
-//use css only
-gulp.task("css", function() {
-  gulp.src(["css/**/*.css"])
-      .pipe(plumber({
-        errorHandler: notify.onError("Error: <%= error.message %>")
-      }))
-      .pipe(autoprefixer())
-      .pipe(cssmin())
-      .pipe(rename({ extname: '.min.css' }))
-      .pipe(gulp.dest("./css/min"))
-      .pipe(browser.reload({stream:true}));
 });
 
 //js minify
