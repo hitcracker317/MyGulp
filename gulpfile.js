@@ -117,7 +117,7 @@ gulp.task("js-concat", function() {
   .pipe(plumber({
     errorHandler: notify.onError("Error: <%= error.message %>")
   }))
-  .pipe(concat("weather.js"))
+  .pipe(concat("script.js"))
   .pipe(gulp.dest(dest.js));
 });
 
