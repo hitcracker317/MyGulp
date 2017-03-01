@@ -66,6 +66,7 @@ gulp.task("ejs", function() {
     errorHandler: notify.onError("Error: <%= error.message %>")
   }))
   .pipe(ejs('', {"ext": ".html"}))
+  .pipe(rename("index.html"))
   .pipe(gulp.dest(destPath))
   .pipe(browserSync.reload({stream:true}));
 });
