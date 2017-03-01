@@ -199,7 +199,7 @@ gulp.task("watch", function(){
 });
 
 //ローカルサーバー
-gulp.task("server", function(){
+gulp.task("browser-sync", function(){
   browserSync({
     server: {
       baseDir: "./",
@@ -209,4 +209,4 @@ gulp.task("server", function(){
   });
 });
 
-gulp.task("default",["ejs","sass","js","imagemin","sprite","watch","server"]);
+gulp.task("default",["ejs","sass","js","imagemin","sprite","watch","browser-sync"]);

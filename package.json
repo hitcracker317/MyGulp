@@ -10,7 +10,8 @@
   "private": true,
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.18.5",
+    "browser-sync": "^2.18.8",
+    "fs": "0.0.1-security",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.6.1",
@@ -20,10 +21,12 @@
     "gulp-inject": "^4.1.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
-    "gulp-uglify": "^2.0.0",
-    "gulp.spritesmith": "^6.2.1",
+    "gulp-uglify": "^2.0.1",
+    "gulp.spritesmith": "^6.3.0",
     "imagemin-pngquant": "^5.0.0",
+    "path": "^0.12.7",
     "run-sequence": "^1.2.2"
   }
 }
